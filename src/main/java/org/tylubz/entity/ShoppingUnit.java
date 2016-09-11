@@ -1,0 +1,34 @@
+package org.tylubz.entity;
+
+/**
+ * Created by Sergei on 10.09.2016.
+ */
+public class ShoppingUnit {
+    private String name;
+    private int amount;
+    private float price;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+}

@@ -1,0 +1,6 @@
+.div-border:hover{
+    border: 1px solid #333333;
+    border-radius: 35px;
+    height: 200px;
+    overflow:hidden;
+}

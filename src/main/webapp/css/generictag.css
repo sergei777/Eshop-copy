@@ -1,0 +1,70 @@
+.headerclass {
+    height: 50px;
+    position: relative;
+}
+
+.div-bucket {
+    float: right;
+    padding-right: 15px;
+    width: 200px;
+}
+
+.div-button {
+    position: relative;
+    right: 5px;
+}
+
+.div2 {
+    position: absolute;
+    bottom: 0;
+}
+
+.div-bucket-buttons {
+    position: absolute;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+
+.div-bucket-element {
+    position: absolute;
+    top: 5px;
+    right: 120px;
+    width: 100px;
+    height: 80px;
+}
+
+.div-paragraph {
+    position: absolute;
+    padding-top: 10px;
+}
+
+h5 {
+    margin-bottom: 0px;
+}
+
+.navbar-default {
+    position: relative;
+    background-color: #fbfbff;
+}
+
+.div-settings {
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.container {
+    position: relative;
+    top: 60px;
+}
