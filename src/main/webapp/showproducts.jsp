@@ -26,6 +26,7 @@
                                 <input type="hidden" name="amount" value="1">
                                 <input type="hidden" name="price" value="${item.price}">
                                 <input type="hidden" name="imgPath" value="${item.imagePath}">
+                                <input type="hidden" name="id" value="${item.id}">
                                 <input type="image" src="/images/${item.imagePath}"
                                                          alt="picture not found"
                                                          class="img-rounded"

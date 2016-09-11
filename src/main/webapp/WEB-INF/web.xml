@@ -60,4 +60,12 @@
     <servlet-name>ShoppingCart</servlet-name>
     <url-pattern>/shopping-cart</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>MakeOrder</servlet-name>
+    <servlet-class>org.tylubz.servlet.MakeOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MakeOrder</servlet-name>
+    <url-pattern>/make-order</url-pattern>
+  </servlet-mapping>
 </web-app>

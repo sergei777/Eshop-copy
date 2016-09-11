@@ -12,6 +12,10 @@ public class GenericService<E, PK extends Serializable> {
 
     private GenericDaoJpaImpl<E, PK> genericDao;
 
+    public GenericService(Class<E> entity){
+        genericDao = new GenericDaoJpaImpl<E, PK>(entity);
+    }
+
     public E create(E newInstance) {
         genericDao.create(newInstance);
         return newInstance;

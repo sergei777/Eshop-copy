@@ -7,9 +7,10 @@ import java.util.List;
  * Created by Sergei on 20.08.2016.
  */
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "order_table")
+public class OrderEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -25,19 +26,23 @@ public class Order {
     @Column(name = "order_status")
     private String orderStatus;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    private ClientAddress clientAddress;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_addressid")
+    private AddressEntity address;
+
+    @ManyToOne(cascade = CascadeType.MERGE,
+            fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserEntity user;
 
-    @ManyToMany
-    @JoinTable(name = "OrderHasProductEntity",
+    @ManyToMany(cascade = CascadeType.MERGE,
+            fetch = FetchType.LAZY)
+    @JoinTable(name = "order_has_product",
             joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-            private List<Product> products;
+            private List<ProductEntity> products;
 
     public int getId() {
         return id;
@@ -79,28 +84,28 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public List<Product> getProducts() {
+    public List<ProductEntity> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<ProductEntity> products) {
         this.products = products;
     }
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
-    public ClientAddress getClientAddress() {
-        return clientAddress;
+    public AddressEntity getAddressEntity() {
+        return address;
     }
 
-    public void setClientAddress(ClientAddress clientAddress) {
-        this.clientAddress = clientAddress;
+    public void setAddressEntity(AddressEntity address) {
+        this.address = address;
     }
 
 }

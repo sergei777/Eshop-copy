@@ -16,32 +16,38 @@
     </jsp:attribute>
     <jsp:body>
         <div class="container">
-        <table class="table">
-            <thead>
-            <tr>
-            <th>Название товара</th>
-            <th>Цена</th>
-            <th>Количество</th>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Название товара</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
                 </tr>
-            </thead>
-            <tbody>
-        <c:forEach items="${sessionScope.shoppingCart.shoppingList}" var="item">
-            <tr>
-                <td>${item.name}</td>
-                <td>${item.price}</td>
-                <td>${item.amount}</td>
+                </thead>
+                <tbody>
+                <c:forEach items="${sessionScope.shoppingCart.shoppingList}" var="item">
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.price}</td>
+                        <td>${item.amount}</td>
+                    </tr>
+                </c:forEach>
+                <tr>
+                    <th>Итого: ${sessionScope.shoppingCart.totalPrice} рублей</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-        </c:forEach>
-        <tr>
-            <th>Итого: ${sessionScope.shoppingCart.totalPrice} рублей</th>
-            <th></th>
-            <th></th>
-        </tr>
-            </tbody>
+                </tbody>
 
 
-        </table>
-        <input type="button" value="Оформить заказ">
+            </table>
+            <form action="/order.jsp" method="GET">
+                <input type="submit" class="btn btn-default" value="Оформить заказ"
+                <c:if test="${empty sessionScope.first_name}">
+                        disabled title="Необходимо зарегистрироваться"
+                        </c:if>
+                >
+            </form>
         </div>
     </jsp:body>
 </t:genericpage>

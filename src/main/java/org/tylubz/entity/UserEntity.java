@@ -8,8 +8,8 @@ import java.util.List;
  * Created by Sergei on 20.08.2016.
  */
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "user_table")
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,8 +38,14 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "user")
+    private List<OrderEntity> orders;
+
+    @OneToOne(cascade = CascadeType.ALL,
+            fetch=FetchType.LAZY)
+    @JoinColumn(name="user_address")
+    private AddressEntity addressEntity;
 
     public int getId() {
         return id;
@@ -105,11 +111,19 @@ public class User {
         this.password = password;
     }
 
-    public List<Order> getOrders() {
+    public List<OrderEntity> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Order> orders) {
+    public void setOrders(List<OrderEntity> orders) {
         this.orders = orders;
+    }
+
+    public AddressEntity getAddressEntity() {
+        return addressEntity;
+    }
+
+    public void setAddressEntity(AddressEntity addressEntity) {
+        this.addressEntity = addressEntity;
     }
 }

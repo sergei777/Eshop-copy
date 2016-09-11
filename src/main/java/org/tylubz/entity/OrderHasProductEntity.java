@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "order_has_product")
-public class OrderHasProduct implements Serializable{
+public class OrderHasProductEntity implements Serializable{
 
     @Id
     @Column(name = "order_id")

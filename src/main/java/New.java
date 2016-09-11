@@ -1,21 +1,21 @@
 import org.tylubz.dao.GenericDao;
 import org.tylubz.dao.GenericDaoJpaImpl;
-import org.tylubz.entity.ClientAddress;
+import org.tylubz.entity.AddressEntity;
 
 /**
  * Created by Sergei on 21.08.2016.
  */
 public class New {
     public static void main(String[] args) {
-        ClientAddress clientAddressEntity = new ClientAddress();
-        GenericDao<ClientAddress,Integer> impl = new GenericDaoJpaImpl(ClientAddress.class);
-        clientAddressEntity.setCity("NewYork");
-        clientAddressEntity.setCountry("USA");
-        clientAddressEntity.setPostcode(197232);
-        clientAddressEntity.setStreetName("AvenueStreet");
-        clientAddressEntity.setHouseNumber(34);
-        clientAddressEntity.setDoor(20);
-        impl.create(clientAddressEntity);
+        AddressEntity clientAddressEntityEntity = new AddressEntity();
+        GenericDao<AddressEntity,Integer> impl = new GenericDaoJpaImpl(AddressEntity.class);
+        clientAddressEntityEntity.setCity("NewYork");
+        clientAddressEntityEntity.setCountry("USA");
+        clientAddressEntityEntity.setPostcode(197232);
+        clientAddressEntityEntity.setStreetName("AvenueStreet");
+        clientAddressEntityEntity.setHouseNumber(34);
+        clientAddressEntityEntity.setDoor(20);
+        impl.create(clientAddressEntityEntity);
         //service.update(clientAddressEntity);
     }
 }

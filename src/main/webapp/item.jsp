@@ -24,6 +24,7 @@
                 <input type="hidden" name="name" value="${param.name}">
                 <input type="hidden" name="amount" value="1">
                 <input type="hidden" name="price" value="${param.price}">
+                <input type="hidden" name="id" value="${param.id}">
             <input type="submit" class="btn btn-default" value="Добавить в корзину">
                 </form>
         </div>

@@ -83,11 +83,80 @@
                                 </div>
                             </div>
 
+                            <div class="modal-header">
+                                <h4 class="modal-title text-center" id="myAdditionalInformationModalLabel">Контактная информация</h4>
+                            </div>
+                            <!----------------------------break-------------------------------------------------------------><br>
+
+
+                                <div class="col-xs-6">
+                                    <label>Страна</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="country" placeholder="Страна">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                    </div>
+
+                                    <br>
+                                    <label>Почтовый код</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="postcode" placeholder="Введите почтовый код">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                    </div>
+                                    <!--------------------------------------separator--------------------------------------------------------------->
+                                    <br>
+                                </div>
+
+
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label>Город</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="city" placeholder="Город">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                    </div>
+
+                                    <br>
+                                    <label>Улица</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="street" placeholder="Введите название улицы">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                    </div>
+                                    <!--------------------------------------separator---------------------------------------------------------------> <br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label>Дом</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="house_number" placeholder="Введите номер дома">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label>Квартира</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="float_number" placeholder="Введите номер квартиры">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+
+
+
                             <div class="form-group">
                                     <input type="submit" form="registerForm" name="submit" id="submit" value="Зарегистироваться!" class="btn btn-success center-block">
                             </div>
                         </form>
+
+
                     </div><!---modal-body--->
+
                 </div>
             </div>
 

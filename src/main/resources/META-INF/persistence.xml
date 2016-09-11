@@ -2,11 +2,11 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
     <persistence-unit name="myapp" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>org.tylubz.entity.ClientAddress</class>
-        <class>org.tylubz.entity.Order</class>
-        <class>org.tylubz.entity.OrderHasProduct</class>
-        <class>org.tylubz.entity.Product</class>
-        <class>org.tylubz.entity.User</class>
+        <class>org.tylubz.entity.AddressEntity</class>
+        <class>org.tylubz.entity.OrderEntity</class>
+        <class>org.tylubz.entity.OrderHasProductEntity</class>
+        <class>org.tylubz.entity.ProductEntity</class>
+        <class>org.tylubz.entity.UserEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/shopdb?useUnicode=yes&amp;characterEncoding=UTF-8"/>

@@ -33,6 +33,7 @@
                     <li class="active"><a href="/index.jsp">На главную</a></li>
                     <li><a href="/about/">О компании</a></li>
                     <li><a href="/products">Каталог товаров</a></li>
+                    <li><a href="/AddressServlet">Адрес</a></li>
                     <li><a href="/contact/">Контакты</a></li>
                 </ul>
 

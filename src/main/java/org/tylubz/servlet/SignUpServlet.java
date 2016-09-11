@@ -1,7 +1,8 @@
 package org.tylubz.servlet;
 
 import org.tylubz.dao.UserDao;
-import org.tylubz.entity.User;
+import org.tylubz.entity.AddressEntity;
+import org.tylubz.entity.UserEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +12,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
@@ -22,13 +21,10 @@ import java.util.Locale;
 public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDao userDao = new UserDao(User.class);
+        UserDao userDao = new UserDao(UserEntity.class);
         req.setCharacterEncoding("UTF-8");
-        User user = new User();
-        user.setFirstName("Петька!");
-        //user.setFirstName(req.getParameter("first_name"));
-        System.out.println(req.getParameter("first_name"));
-        System.out.println(req.getParameter("last_name"));
+        UserEntity user = new UserEntity();
+        user.setFirstName(req.getParameter("first_name"));
         user.setUsername(req.getParameter("username"));
         user.setSecondName(req.getParameter("last_name"));
         user.setPassword(req.getParameter("password"));
@@ -40,8 +36,16 @@ public class SignUpServlet extends HttpServlet {
             e.printStackTrace();
         }
         user.setUserType("user");
+        if(req.getParameter("city")!=null){
+            AddressEntity addressEntity = new AddressEntity();
+            addressEntity.setCountry(req.getParameter("country"));
+            addressEntity.setCity(req.getParameter("city"));
+            addressEntity.setPostcode(Integer.valueOf(req.getParameter("postcode")));
+            addressEntity.setHouseNumber(Integer.valueOf(req.getParameter("house_number")));
+            addressEntity.setDoor(Integer.valueOf(req.getParameter("floar_number")));
+            user.setAddressEntity(addressEntity);
+        }
         userDao.create(user);
-        ///user.setBirthDate(new Date());
     }
 
     public static void main(String[] args) {

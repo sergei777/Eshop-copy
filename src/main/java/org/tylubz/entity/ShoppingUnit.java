@@ -4,9 +4,19 @@ package org.tylubz.entity;
  * Created by Sergei on 10.09.2016.
  */
 public class ShoppingUnit {
+
+    private int id;
     private String name;
     private int amount;
     private float price;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

@@ -1,6 +1,6 @@
 package org.tylubz.dao;
 
-import org.tylubz.entity.Product;
+import org.tylubz.entity.ProductEntity;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -13,9 +13,9 @@ public class ProductDao extends GenericDaoJpaImpl {
         super(entity);
     }
 
-    public List<Product> getAllProducts(){
-        String queryString = "SELECT a FROM Product AS a";
+    public List<ProductEntity> getAllProducts(){
+        String queryString = "SELECT a FROM ProductEntity AS a";
         Query query = entityManager.createQuery(queryString);
-        return (List<Product>) query.getResultList();
+        return (List<ProductEntity>) query.getResultList();
     }
 }

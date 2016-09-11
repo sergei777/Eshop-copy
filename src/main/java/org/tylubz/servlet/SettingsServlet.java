@@ -1,7 +1,7 @@
 package org.tylubz.servlet;
 
 import org.tylubz.dao.UserDao;
-import org.tylubz.entity.User;
+import org.tylubz.entity.UserEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,10 +20,10 @@ public class SettingsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDao userDao = new UserDao(User.class);
+        UserDao userDao = new UserDao(UserEntity.class);
         String username = req.getSession().getAttribute("username").toString();
         String password = req.getSession().getAttribute("password").toString();
-        User userEntity = userDao.getEntityByUsernameAndPassword(username,password);
+        UserEntity userEntity = userDao.getEntityByUsernameAndPassword(username,password);
         req.setAttribute("user",userEntity);
         req.getRequestDispatcher("/settings.jsp").forward(req,resp);
     }

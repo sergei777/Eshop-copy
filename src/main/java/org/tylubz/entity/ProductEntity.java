@@ -6,10 +6,11 @@ import javax.persistence.*;
  * Created by Sergei on 20.08.2016.
  */
 @Entity
-@Table(name = "product")
-public class Product {
+@Table(name = "product_table")
+public class ProductEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 

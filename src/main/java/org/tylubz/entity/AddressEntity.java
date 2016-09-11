@@ -6,10 +6,11 @@ import javax.persistence.*;
  * Created by Sergei on 20.08.2016.
  */
 @Entity
-@Table(name = "clientaddress")
-public class ClientAddress {
+@Table(name = "address_table")
+public class AddressEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -31,7 +32,6 @@ public class ClientAddress {
 
     @Column(name = "door")
     private Integer door;
-
 
     public int getId() {
         return id;

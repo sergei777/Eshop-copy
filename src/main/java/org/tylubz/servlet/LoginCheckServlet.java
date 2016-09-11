@@ -1,7 +1,7 @@
 package org.tylubz.servlet;
 
 import org.tylubz.dao.UserDao;
-import org.tylubz.entity.User;
+import org.tylubz.entity.UserEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,10 +20,11 @@ public class LoginCheckServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDao userDao = new UserDao(UserDao.class);
-        User user = userDao.getEntityByUsernameAndPassword("ser","1234");
+        UserEntity user = userDao.getEntityByUsernameAndPassword(req.getParameter("username"),req.getParameter("password"));
         req.getSession().setAttribute("first_name",user.getFirstName());
         req.getSession().setAttribute("username",user.getUsername());
         req.getSession().setAttribute("password",user.getPassword());
-        req.getRequestDispatcher("/index.jsp").forward(req,resp);
+        String url = user.getUserType()=="user" ? "user" : "admin";
+        req.getRequestDispatcher("/"+ url + ".jsp").forward(req,resp);
     }
 }
