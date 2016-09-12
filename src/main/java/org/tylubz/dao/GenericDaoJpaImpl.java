@@ -49,7 +49,16 @@ public class GenericDaoJpaImpl<E,PK extends Serializable>
     }
 
     public void update(E entity) {
-        entityManager.merge(entity);
+
+        EntityTransaction trx = entityManager.getTransaction();
+        try{
+            trx.begin();
+            entityManager.merge(entity);
+            trx.commit();
+        }
+        finally {
+            if(trx.isActive()) trx.rollback();
+        }
     }
 
     public void delete(E entity) {

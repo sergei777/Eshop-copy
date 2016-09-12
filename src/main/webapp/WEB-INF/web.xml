@@ -68,4 +68,20 @@
     <servlet-name>MakeOrder</servlet-name>
     <url-pattern>/make-order</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>UserList</servlet-name>
+    <servlet-class>org.tylubz.servlet.UserListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserList</servlet-name>
+    <url-pattern>/user-list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>OrderList</servlet-name>
+    <servlet-class>org.tylubz.servlet.OrderListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderList</servlet-name>
+    <url-pattern>/order-list</url-pattern>
+  </servlet-mapping>
 </web-app>
