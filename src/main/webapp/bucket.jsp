@@ -38,8 +38,6 @@
                     <th></th>
                 </tr>
                 </tbody>
-
-
             </table>
             <form action="/order.jsp" method="GET">
                 <input type="submit" class="btn btn-default" value="Оформить заказ"

@@ -50,7 +50,6 @@
                                         <input type="text" class="form-control" name="last_name" placeholder="Введите фамилию" required>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                                     </div>
-
                                     <br>
                                     <label>Пароль</label>
                                     <div class="input-group">
@@ -60,7 +59,6 @@
                                     <!--------------------------------------separator---------------------------------------------------------------> <hr>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <label>Дата рождения</label>
@@ -71,7 +69,6 @@
                                     <!----------------------------break-------------------------------------------------------------> <br>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <label>E-mail</label>
@@ -82,31 +79,25 @@
                                     <!----------------------------break-------------------------------------------------------------> <br>
                                 </div>
                             </div>
-
                             <div class="modal-header">
                                 <h4 class="modal-title text-center" id="myAdditionalInformationModalLabel">Контактная информация</h4>
                             </div>
                             <!----------------------------break-------------------------------------------------------------><br>
-
-
-                                <div class="col-xs-6">
-                                    <label>Страна</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="country" placeholder="Страна">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
-                                    </div>
-
-                                    <br>
-                                    <label>Почтовый код</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="postcode" placeholder="Введите почтовый код">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
-                                    </div>
-                                    <!--------------------------------------separator--------------------------------------------------------------->
-                                    <br>
+                            <div class="col-xs-6">
+                                <label>Страна</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="country" placeholder="Страна">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                 </div>
-
-
+                                <br>
+                                <label>Почтовый код</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="postcode" placeholder="Введите почтовый код">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                </div>
+                                <!--------------------------------------separator--------------------------------------------------------------->
+                                <br>
+                            </div>
                             <div class="form-group">
                                 <div class="col-xs-6">
                                     <label>Город</label>
@@ -114,7 +105,6 @@
                                         <input type="text" class="form-control" name="city" placeholder="Город">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
-
                                     <br>
                                     <label>Улица</label>
                                     <div class="input-group">
@@ -124,7 +114,6 @@
                                     <!--------------------------------------separator---------------------------------------------------------------> <br>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <div class="col-xs-6">
                                     <label>Дом</label>
@@ -135,7 +124,6 @@
                                     <hr>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <div class="col-xs-6">
                                     <label>Квартира</label>
@@ -146,21 +134,13 @@
                                     <hr>
                                 </div>
                             </div>
-
-
-
                             <div class="form-group">
-                                    <input type="submit" form="registerForm" name="submit" id="submit" value="Зарегистироваться!" class="btn btn-success center-block">
+                                <input type="submit" form="registerForm" name="submit" id="submit" value="Зарегистироваться!" class="btn btn-success center-block">
                             </div>
                         </form>
-
-
                     </div><!---modal-body--->
-
                 </div>
             </div>
-
-
             <script type="text/javascript">
             </script>
             </body>

@@ -1,0 +1,24 @@
+.carousel{
+    background: #2f4357;
+    margin-top: 0px;
+}
+.carousel .item img{
+    margin: 0 auto; /* Align slide image horizontally center */
+}
+.bs-example{
+    /*margin: 20px;*/
+}
+
+.tales {
+    width: 100%;
+}
+
+.carousel-inner{
+    width:100%;
+    max-height: 400px !important;
+}
+
+.carousel{
+    border-radius: 55px; /* Opera 10.5, IE9, Saf5, Chrome, FF4 */
+    overflow:hidden;
+}

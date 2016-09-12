@@ -13,6 +13,10 @@ public class ProductDao extends GenericDaoJpaImpl {
         super(entity);
     }
 
+    public ProductDao() {
+        super(ProductEntity.class);
+    }
+
     public List<ProductEntity> getAllProducts(){
         String queryString = "SELECT a FROM ProductEntity AS a";
         Query query = entityManager.createQuery(queryString);

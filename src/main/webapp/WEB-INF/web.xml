@@ -84,4 +84,12 @@
     <servlet-name>OrderList</servlet-name>
     <url-pattern>/order-list</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ProductList</servlet-name>
+    <servlet-class>org.tylubz.servlet.ProductListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductList</servlet-name>
+    <url-pattern>/product-list</url-pattern>
+  </servlet-mapping>
 </web-app>
