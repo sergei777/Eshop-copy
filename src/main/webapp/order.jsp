@@ -37,7 +37,7 @@
                             <div class="col-xs-4">
                                 <label>Почтовый индекс</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="postcode" placeholder="Индекс">
+                                    <input type="text" class="form-control" name="postcode" placeholder="Индекс" required>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                 </div>
                                 <br>
@@ -46,7 +46,7 @@
                             <div class="col-xs-4">
                                 <label>Город</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="city" placeholder="Город">
+                                    <input type="text" class="form-control" name="city" placeholder="Город" required>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                 </div>
                                 <br>
@@ -57,7 +57,7 @@
                                 <div class="col-xs-4">
                             <label>Улица</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" name="street" placeholder="Улица">
+                                <input type="text" class="form-control" name="street" placeholder="Улица" required>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                                 <div class="col-xs-4">
                                     <label>Дом</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="house_number" placeholder="Дом">
+                                        <input type="text" class="form-control" name="house_number" placeholder="Дом" required>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                                 <div class="col-xs-4">
                                     <label>Квартира</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="float_number" placeholder="Квартира">
+                                        <input type="text" class="form-control" name="float_number" placeholder="Квартира" required>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
                                     <br>
@@ -88,7 +88,7 @@
                                 <div class="col-xs-6">
                                     <label>Способ оплаты</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="payment_type" placeholder="Способ оплаты">
+                                        <input type="text" class="form-control" name="payment_type" placeholder="Способ оплаты" required>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
                                     <hr>
@@ -99,7 +99,7 @@
                                 <div class="col-xs-6">
                                     <label>Способ доставки</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="delivery_type" placeholder="Способ доставки">
+                                        <input type="text" class="form-control" name="delivery_type" placeholder="Способ доставки" required>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
                                     <hr>
@@ -107,6 +107,8 @@
                             </div>
 
                             <div class="form-group">
+                                <input type="hidden" name="payment_status" value="Не оплачен">
+                                <input type="hidden" name="order_status" value="Не оплачен">
                                 <input type="submit" form="order" name="submit" id="submit" value="Оформить заказ!" class="btn btn-success center-block">
                             </div>
 

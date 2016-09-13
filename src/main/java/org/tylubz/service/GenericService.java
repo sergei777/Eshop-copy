@@ -1,6 +1,5 @@
 package org.tylubz.service;
 
-import org.tylubz.dao.GenericDao;
 import org.tylubz.dao.GenericDaoJpaImpl;
 import org.tylubz.dao.exceptions.DaoStoreException;
 

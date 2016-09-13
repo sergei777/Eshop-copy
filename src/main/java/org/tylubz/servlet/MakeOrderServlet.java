@@ -31,6 +31,8 @@ public class MakeOrderServlet extends HttpServlet {
         ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("shoppingCart");
         String username = session.getAttribute("username").toString();
         createOrder(shoppingCart,username,req,resp);
+        shoppingCart = new ShoppingCart();
+        req.getSession().setAttribute("shoppingCart",shoppingCart);
         req.getRequestDispatcher("/index.jsp").forward(req,resp);
     }
 
@@ -44,10 +46,11 @@ public class MakeOrderServlet extends HttpServlet {
         orderEntity.setDeliveryType(req.getParameter("delivery_type"));
         //System.out.println(req.getParameter("delivery_type"));
         orderEntity.setPaymentType(req.getParameter("payment_type"));
+        orderEntity.setOrderStatus(req.getParameter("order_status"));
+        orderEntity.setPaymentStatus(req.getParameter("payment_status"));
         UserEntity entity = userDao.getEntityByUsername(username);
         orderEntity.setUser(entity);
         orderEntity.setAddressEntity(getAddressEntity(req));
-        //orderEntity.get
         orderEntity.setProducts(getProductList(shoppingList));
         try {
             orderService.create(orderEntity);

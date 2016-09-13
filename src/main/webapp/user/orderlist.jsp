@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include page="/order-list">
+    <jsp:param name="getorderlistbyid" value="${sessionScope.id}" />
+</jsp:include>
 <t:genericpage>
     <jsp:attribute name="header">
         <h1>Мои заказы</h1>
@@ -28,7 +31,7 @@
                         <%--<th>Адрес</th>--%>
                 </tr>
                 </thead>
-                <c:forEach items="${sessionScope.user.orders}" var="item">
+                <c:forEach items="${requestScope.orderList}" var="item">
                     <tr>
                         <td>${item.id}</td>
                         <td>${item.paymentType}</td>

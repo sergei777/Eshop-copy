@@ -78,7 +78,7 @@ public class GenericDaoJpaImpl<E,PK extends Serializable>
         EntityTransaction trx = entityManager.getTransaction();
         try{
             trx.begin();
-        entityManager.remove(entity);
+            entityManager.remove(entity);
             trx.commit();
         }
         catch (PersistenceException ex){
