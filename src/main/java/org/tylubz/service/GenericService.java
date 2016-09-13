@@ -2,6 +2,7 @@ package org.tylubz.service;
 
 import org.tylubz.dao.GenericDao;
 import org.tylubz.dao.GenericDaoJpaImpl;
+import org.tylubz.dao.exceptions.DaoStoreException;
 
 import java.io.Serializable;
 
@@ -16,7 +17,7 @@ public class GenericService<E, PK extends Serializable> {
         genericDao = new GenericDaoJpaImpl<E, PK>(entity);
     }
 
-    public E create(E newInstance) {
+    public E create(E newInstance) throws DaoStoreException{
         genericDao.create(newInstance);
         return newInstance;
     }
@@ -25,11 +26,11 @@ public class GenericService<E, PK extends Serializable> {
         return genericDao.read(id);
     }
 
-    public void update(E entity) {
+    public void update(E entity) throws DaoStoreException {
         genericDao.update(entity);
     }
 
-    public void delete(E entity) {
+    public void delete(E entity) throws DaoStoreException {
         genericDao.delete(entity);
     }
 }

@@ -2,6 +2,7 @@ package org.tylubz.servlet;
 
 import org.tylubz.dao.GenericDaoJpaImpl;
 import org.tylubz.dao.UserDao;
+import org.tylubz.dao.exceptions.DaoStoreException;
 import org.tylubz.entity.*;
 import org.tylubz.service.GenericService;
 
@@ -29,11 +30,11 @@ public class MakeOrderServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("shoppingCart");
         String username = session.getAttribute("username").toString();
-        createOrder(shoppingCart,username,req);
+        createOrder(shoppingCart,username,req,resp);
         req.getRequestDispatcher("/index.jsp").forward(req,resp);
     }
 
-    public void createOrder(ShoppingCart shoppingCart,String username,HttpServletRequest req){
+    public void createOrder(ShoppingCart shoppingCart,String username,HttpServletRequest req,HttpServletResponse resp){
         GenericService<OrderEntity,Integer> orderService = new GenericService<OrderEntity, Integer>(OrderEntity.class);
         //GenericDaoJpaImpl<OrderEntity,Integer> orderService = new GenericDaoJpaImpl<OrderEntity, Integer>(OrderEntity.class);
         GenericService<UserEntity,Integer> userService = new GenericService<UserEntity, Integer>(UserEntity.class);
@@ -48,7 +49,11 @@ public class MakeOrderServlet extends HttpServlet {
         orderEntity.setAddressEntity(getAddressEntity(req));
         //orderEntity.get
         orderEntity.setProducts(getProductList(shoppingList));
-        orderService.create(orderEntity);
+        try {
+            orderService.create(orderEntity);
+        } catch (DaoStoreException e) {
+            resp.setStatus(500);
+        }
 
     }
 

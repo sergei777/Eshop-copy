@@ -17,7 +17,7 @@ public class ShoppingCartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         add(req);
-        req.getRequestDispatcher("/index.jsp").forward(req,resp);
+        req.getRequestDispatcher("/showproducts.jsp").forward(req,resp);
     }
 
     public void add(HttpServletRequest request){

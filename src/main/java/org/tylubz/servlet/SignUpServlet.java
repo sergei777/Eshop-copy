@@ -1,6 +1,7 @@
 package org.tylubz.servlet;
 
 import org.tylubz.dao.UserDao;
+import org.tylubz.dao.exceptions.DaoStoreException;
 import org.tylubz.entity.AddressEntity;
 import org.tylubz.entity.UserEntity;
 
@@ -45,7 +46,11 @@ public class SignUpServlet extends HttpServlet {
             addressEntity.setDoor(Integer.valueOf(req.getParameter("floar_number")));
             user.setAddressEntity(addressEntity);
         }
-        userDao.create(user);
+        try {
+            userDao.create(user);
+        } catch (DaoStoreException e) {
+            resp.setStatus(500);
+        }
     }
 
     public static void main(String[] args) {

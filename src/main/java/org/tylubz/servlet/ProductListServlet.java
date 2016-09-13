@@ -1,6 +1,7 @@
 package org.tylubz.servlet;
 
 import org.tylubz.dao.ProductDao;
+import org.tylubz.dao.exceptions.DaoStoreException;
 import org.tylubz.entity.ProductEntity;
 
 import javax.servlet.ServletException;
@@ -39,7 +40,11 @@ public class ProductListServlet extends HttpServlet {
         productEntity.setWeight(Double.valueOf(req.getParameter("weight")));
         productEntity.setVolume(req.getParameter("volume"));
         productEntity.setImagePath(req.getParameter("img_path"));
-        productDao.update(productEntity);
+        try {
+            productDao.update(productEntity);
+        } catch (DaoStoreException e) {
+            resp.setStatus(500);
+        }
         req.setAttribute("productItem",productEntity);
 
         //resp.setContentType("text/plain");

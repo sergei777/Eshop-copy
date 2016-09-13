@@ -1,5 +1,6 @@
 import org.tylubz.dao.GenericDao;
 import org.tylubz.dao.GenericDaoJpaImpl;
+import org.tylubz.dao.exceptions.DaoStoreException;
 import org.tylubz.entity.AddressEntity;
 
 /**
@@ -15,7 +16,11 @@ public class New {
         clientAddressEntityEntity.setStreetName("AvenueStreet");
         clientAddressEntityEntity.setHouseNumber(34);
         clientAddressEntityEntity.setDoor(20);
-        impl.create(clientAddressEntityEntity);
+        try {
+            impl.create(clientAddressEntityEntity);
+        } catch (DaoStoreException e) {
+            e.printStackTrace();
+        }
         //service.update(clientAddressEntity);
     }
 }

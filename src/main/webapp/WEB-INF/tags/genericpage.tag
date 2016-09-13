@@ -32,11 +32,9 @@
         <nav class="navbar navbar-default">
             <div class="headerclass">
                 <ul class="nav navbar-nav center-block">
-                    <li class="active"><a href="/index.jsp">На главную</a></li>
-                    <li><a href="/about/">О компании</a></li>
+                    <li><a href="/index.jsp">На главную</a></li>
                     <li><a href="/products">Каталог товаров</a></li>
-                    <li><a href="/AddressServlet">Адрес</a></li>
-                    <li><a href="/contact/">Контакты</a></li>
+                    <li><a href="/contacts.jsp">Контакты</a></li>
                 </ul>
 
                 <div class="div-bucket-buttons div-button">
@@ -46,6 +44,9 @@
                         <a href="/registrationform.jsp" class="btn btn-default">Регистрация</a>
                         </c:if>
                         <c:if test="${!empty sessionScope.first_name}">
+                            <a href="/user/orderlist.jsp" class="btn btn-default">Мои заказы</a>
+
+                            <a href="/checkuser?sign-out=out" class="btn btn-default">Выход</a>
                             <div class="btn">
                                 <a href="/settings">
                                     <div class="div-settings">

@@ -1,10 +1,12 @@
 package org.tylubz.dao;
 
+import org.tylubz.dao.exceptions.DaoStoreException;
 import org.tylubz.utils.ServletContextListenerImpl;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 /**
  * Created by Sergei on 21.08.2016.
@@ -21,12 +23,15 @@ public class GenericDaoJpaImpl<E,PK extends Serializable>
         entityClass = entity;
     }
 
-    public E create(E newInstance) {
+    public E create(E newInstance) throws DaoStoreException{
         EntityTransaction trx = entityManager.getTransaction();
         try{
             trx.begin();
             entityManager.persist(newInstance);
             trx.commit();
+        }
+        catch (PersistenceException ex){
+            throw new DaoStoreException(ex);
         }
         finally {
             if(trx.isActive()) trx.rollback();
@@ -48,25 +53,36 @@ public class GenericDaoJpaImpl<E,PK extends Serializable>
         return e;
     }
 
-    public void update(E entity) {
+    public List<E> readAll() {
+        return entityManager
+                .createQuery("select x from " + entityClass.getSimpleName() + " x")
+                .getResultList();
+    }
 
+    public void update(E entity) throws DaoStoreException{
         EntityTransaction trx = entityManager.getTransaction();
         try{
             trx.begin();
             entityManager.merge(entity);
             trx.commit();
         }
+        catch (PersistenceException ex){
+            throw new DaoStoreException(ex);
+        }
         finally {
             if(trx.isActive()) trx.rollback();
         }
     }
 
-    public void delete(E entity) {
+    public void delete(E entity) throws DaoStoreException{
         EntityTransaction trx = entityManager.getTransaction();
         try{
             trx.begin();
         entityManager.remove(entity);
             trx.commit();
+        }
+        catch (PersistenceException ex){
+            throw new DaoStoreException(ex);
         }
         finally {
             if(trx.isActive()) trx.rollback();

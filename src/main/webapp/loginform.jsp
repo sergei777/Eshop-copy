@@ -9,6 +9,32 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:genericpage>
     <jsp:attribute name="header">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(document).on('click', '#loginbutton', function (evt) {
+                    evt.preventDefault();
+            //$("#sign-in-form").onclick(function() {
+                var url = "/checkuser"; // the script where you handle the form input.
+                var smt = $("#sign-in-form");
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: smt.serialize(), // serializes the form's elements.
+                    success: function(text)
+                    {
+                        //alert("hi! " + text); // show response from the script.
+                        window.location.href = text;
+                        //alert('form was submitted');
+                    },
+                    error : function() {
+                        alert ('Неверный имя пользователя или пароль');
+                    }
+                });
+
+                //e.preventDefault(); // avoid to execute the actual submit of the form.
+            })});
+        </script>
         <h1>Вход</h1>
     </jsp:attribute>
     <jsp:attribute name="footer">
@@ -24,7 +50,7 @@
                             <strong> Вход в аккаунт</strong>
                         </div>
                         <div class="panel-body">
-                            <form role="form" action="/checkuser" method="POST">
+                            <form id = "sign-in-form" method="POST">
                                 <fieldset>
                                     <div class="row">
                                         <div class="center-block">
@@ -39,7 +65,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span>
-                                                    <input class="form-control" placeholder="Имя пользователя" name="loginname" type="text" autofocus>
+                                                    <input class="form-control" placeholder="Имя пользователя" name="login" type="text" autofocus>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -51,10 +77,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Войти">
+                                                <input type="submit" id="loginbutton" class="btn btn-lg btn-primary btn-block" value="Войти">
                                             </div>
+                                            </form>
                                         </div>
-                                    </div>
                                 </fieldset>
                             </form>
                         </div>
