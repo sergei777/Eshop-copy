@@ -12,7 +12,7 @@
         <h1>Настройки пользователя</h1>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
@@ -35,7 +35,7 @@
                         <div class="modal-body">
 
 
-                            <form id="registerForm" action="/sign-up" method="POST">
+                            <form id="registerForm" action="${pageContext.request.contextPath}/sign-up" method="POST">
                                 <!---form--->
                                 <div class="form-group">
                                     <!---input width--->

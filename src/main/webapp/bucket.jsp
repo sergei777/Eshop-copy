@@ -39,11 +39,11 @@
                 </tr>
                 </tbody>
             </table>
-            <form action="/order.jsp" method="GET">
+            <form action="${pageContext.request.contextPath}/order.jsp" method="GET">
                 <input type="submit" class="btn btn-default" value="Оформить заказ"
                 <c:if test="${empty sessionScope.first_name}">
-                        disabled title="Необходимо зарегистрироваться"
-                        </c:if>
+                       disabled title="Необходимо зарегистрироваться"
+                </c:if>
                 >
             </form>
         </div>

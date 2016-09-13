@@ -17,16 +17,16 @@
         <div class="container">
             <h1>${param.name}</h1>
             <p>${param.price}</p>
-            <img src="images/${param.imgPath}"
-            width="60%"
-            height="60%">
-            <form action="/shopping-cart" method="GET">
+            <img src="${pageContext.request.contextPath}/images/${param.imgPath}"
+                 width="60%"
+                 height="60%">
+            <form action="${pageContext.request.contextPath}/shopping-cart" method="GET">
                 <input type="hidden" name="name" value="${param.name}">
                 <input type="hidden" name="amount" value="1">
                 <input type="hidden" name="price" value="${param.price}">
                 <input type="hidden" name="id" value="${param.id}">
-            <input type="submit" class="btn btn-default" value="Добавить в корзину">
-                </form>
+                <input type="submit" class="btn btn-default" value="Добавить в корзину">
+            </form>
         </div>
     </jsp:body>
 </t:genericpage>

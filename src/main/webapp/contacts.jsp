@@ -9,7 +9,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:genericpage>
     <jsp:attribute name="header">
-        <h1>Корзина</h1>
+        <h1>Контакты</h1>
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
@@ -18,7 +18,7 @@
         <p>Наш магазин находится по адресу:
             м. Купчино, улица Ярослава-Гашека 23
         </p>
-        <img  class = "img-rounded" src="http://www.be-in.ru/media/beingallery/gallery/userdata/user_12133/img19492.jpg" >
+        <img class="img-rounded" src="http://www.be-in.ru/media/beingallery/gallery/userdata/user_12133/img19492.jpg">
         <p>Вход со двора
         </p>
         <div class="container">
