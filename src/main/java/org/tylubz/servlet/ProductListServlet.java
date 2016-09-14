@@ -46,6 +46,7 @@ public class ProductListServlet extends HttpServlet {
             resp.setStatus(500);
         }
         req.setAttribute("productItem",productEntity);
+        resp.setStatus(200);
 
         //resp.setContentType("text/plain");
         //resp.getWriter().print("{success: true}");

@@ -15,40 +15,35 @@
           crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             crossorigin="anonymous"></script>
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/generictag.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/generictag.css" rel="stylesheet">
 </head>
 <body>
-
 <div class="container">
     <div id="pageheader">
         <jsp:invoke fragment="header"/>
         <nav class="navbar navbar-default">
             <div class="headerclass">
                 <ul class="nav navbar-nav center-block">
-                    <li><a href="/index.jsp">На главную</a></li>
-                    <li><a href="/products">Каталог товаров</a></li>
-                    <li><a href="/contacts.jsp">Контакты</a></li>
+                    <li><a href="${pageContext.request.contextPath}/index.jsp">На главную</a></li>
+                    <li><a href="${pageContext.request.contextPath}/products">Каталог товаров</a></li>
+                    <li><a href="${pageContext.request.contextPath}/contacts.jsp">Контакты</a></li>
                 </ul>
 
                 <div class="div-bucket-buttons div-button">
                     <div>
                         <c:if test="${empty sessionScope.first_name}">
-                        <a href="/loginform.jsp" class="btn btn-default">Вход</a>
-                        <a href="/registrationform.jsp" class="btn btn-default">Регистрация</a>
+                            <a href="${pageContext.request.contextPath}/loginform.jsp" class="btn btn-default">Вход</a>
+                            <a href="${pageContext.request.contextPath}/registrationform.jsp" class="btn btn-default">Регистрация</a>
                         </c:if>
                         <c:if test="${!empty sessionScope.first_name}">
-                            <a href="/user/orderlist.jsp" class="btn btn-default">Мои заказы</a>
+                            <a href="${pageContext.request.contextPath}/user/orderlist.jsp" class="btn btn-default">Мои
+                                заказы</a>
 
-                            <a href="/checkuser?sign-out=out" class="btn btn-default">Выход</a>
+                            <a href="${pageContext.request.contextPath}/checkuser?sign-out=out" class="btn btn-default">Выход</a>
                             <div class="btn">
-                                <a href="/settings">
+                                <a href="${pageContext.request.contextPath}/settings">
                                     <div class="div-settings">
                                         <img src="http://s1.iconbird.com/ico/2014/1/567/w512h5121389807746applicationdefaulticon.png">
                                     </div>
@@ -64,16 +59,16 @@
 
 <div class="div-bucket-element">
     <h5 class="text-center">Привет,${!empty sessionScope.first_name ? sessionScope.first_name : "гость"}!</h5>
-    <a href="/bucket.jsp">
+    <a href="${pageContext.request.contextPath}/bucket.jsp">
         <img src="http://iconspot.ru/files/287498.png"
              width="70%"
              height="70%"
-        class="center-block">
+             class="center-block">
     </a>
-    <h5 class="text-center">Корзина : ${!empty sessionScope.shoppingCart ? sessionScope.shoppingCart.totalAmount : "0"} товаров</h5>
+    <h5 class="text-center">Корзина : ${!empty sessionScope.shoppingCart ? sessionScope.shoppingCart.totalAmount : "0"}
+        товаров</h5>
 </div>
 <jsp:doBody/>
 <jsp:invoke fragment="footer"/>
-
 </body>
 </html>

@@ -10,14 +10,8 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
       crossorigin="anonymous">
-<link href="/css/style.css" rel="stylesheet">
-<link href="/css/generictag.css" rel="stylesheet">
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/generictag.css" rel="stylesheet">
 </head>
 <body>
 
@@ -27,11 +21,11 @@
         <nav class="navbar navbar-default">
             <div class="headerclass">
                 <ul class="nav navbar-nav center-block">
-                    <li><a href="/admin.jsp">На главную</a></li>
-                    <li><a href="/admin/userlist.jsp">Пользователи</a></li>
-                    <li><a href="/admin/orderlist.jsp">Заказы</a></li>
-                    <li><a href="/admin/productlist.jsp">Управление товарами</a></li>
-                    <li><a href="/admin/statistics.jsp">Статистика продаж</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin.jsp">На главную</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/userlist.jsp">Пользователи</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/orderlist.jsp">Заказы</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/productlist.jsp">Управление товарами</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/statistics.jsp">Статистика продаж</a></li>
                 </ul>
             </div>
         </nav>

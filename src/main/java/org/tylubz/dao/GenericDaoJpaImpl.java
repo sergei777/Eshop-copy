@@ -16,18 +16,42 @@ public class GenericDaoJpaImpl<E,PK extends Serializable>
 
     protected Class<E> entityClass;
 
+
     protected EntityManager entityManager;
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
+
+    public void setEntityClass(Class<E> entityClass) {
+        this.entityClass = entityClass;
+    }
+
+    public Class<E> getEntityClass() {
+        return entityClass;
+    }
 
     public GenericDaoJpaImpl(Class<E> entity){
         entityManager = ServletContextListenerImpl.createEntityManager();
         entityClass = entity;
     }
 
+    public GenericDaoJpaImpl(EntityManager em,Class<E> entity){
+        entityManager = em;
+        entityClass = entity;
+    }
+
+
     public E create(E newInstance) throws DaoStoreException{
-        EntityTransaction trx = entityManager.getTransaction();
+        EntityTransaction trx = getEntityManager().getTransaction();
         try{
             trx.begin();
-            entityManager.persist(newInstance);
+            getEntityManager().persist(newInstance);
             trx.commit();
         }
         catch (PersistenceException ex){
@@ -41,10 +65,10 @@ public class GenericDaoJpaImpl<E,PK extends Serializable>
 
     public E read(PK id) {
         E e = null;
-        EntityTransaction trx = entityManager.getTransaction();
+        EntityTransaction trx = getEntityManager().getTransaction();
         try{
             trx.begin();
-            e = entityManager.find(entityClass,id);
+            e = getEntityManager().find(getEntityClass(),id);
             trx.commit();
         }
         finally {
@@ -54,16 +78,16 @@ public class GenericDaoJpaImpl<E,PK extends Serializable>
     }
 
     public List<E> readAll() {
-        return entityManager
-                .createQuery("select x from " + entityClass.getSimpleName() + " x")
+        return getEntityManager()
+                .createQuery("select x from " + getEntityClass().getSimpleName() + " x")
                 .getResultList();
     }
 
     public void update(E entity) throws DaoStoreException{
-        EntityTransaction trx = entityManager.getTransaction();
+        EntityTransaction trx = getEntityManager().getTransaction();
         try{
             trx.begin();
-            entityManager.merge(entity);
+            getEntityManager().merge(entity);
             trx.commit();
         }
         catch (PersistenceException ex){
@@ -75,10 +99,10 @@ public class GenericDaoJpaImpl<E,PK extends Serializable>
     }
 
     public void delete(E entity) throws DaoStoreException{
-        EntityTransaction trx = entityManager.getTransaction();
+        EntityTransaction trx = getEntityManager().getTransaction();
         try{
             trx.begin();
-            entityManager.remove(entity);
+            getEntityManager().remove(entity);
             trx.commit();
         }
         catch (PersistenceException ex){
