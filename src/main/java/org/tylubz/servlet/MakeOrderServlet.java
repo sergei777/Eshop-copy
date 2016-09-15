@@ -1,6 +1,8 @@
 package org.tylubz.servlet;
 
-import org.tylubz.dao.GenericDaoJpaImpl;
+import org.tylubz.cart.ShoppingCart;
+import org.tylubz.cart.ShoppingUnit;
+import org.tylubz.dao.ProductDao;
 import org.tylubz.dao.UserDao;
 import org.tylubz.dao.exceptions.DaoStoreException;
 import org.tylubz.entity.*;
@@ -38,13 +40,10 @@ public class MakeOrderServlet extends HttpServlet {
 
     public void createOrder(ShoppingCart shoppingCart,String username,HttpServletRequest req,HttpServletResponse resp){
         GenericService<OrderEntity,Integer> orderService = new GenericService<OrderEntity, Integer>(OrderEntity.class);
-        //GenericDaoJpaImpl<OrderEntity,Integer> orderService = new GenericDaoJpaImpl<OrderEntity, Integer>(OrderEntity.class);
-        GenericService<UserEntity,Integer> userService = new GenericService<UserEntity, Integer>(UserEntity.class);
-        UserDao userDao = new UserDao(UserEntity.class);
+        UserDao userDao = new UserDao();
         List<ShoppingUnit> shoppingList = shoppingCart.getShoppingList();
         OrderEntity orderEntity = new OrderEntity();
         orderEntity.setDeliveryType(req.getParameter("delivery_type"));
-        //System.out.println(req.getParameter("delivery_type"));
         orderEntity.setPaymentType(req.getParameter("payment_type"));
         orderEntity.setOrderStatus(req.getParameter("order_status"));
         orderEntity.setPaymentStatus(req.getParameter("payment_status"));
@@ -54,6 +53,7 @@ public class MakeOrderServlet extends HttpServlet {
         orderEntity.setProducts(getProductList(shoppingList));
         try {
             orderService.create(orderEntity);
+            decrementProductAmount(shoppingList);
         } catch (DaoStoreException e) {
             resp.setStatus(500);
         }
@@ -78,6 +78,13 @@ public class MakeOrderServlet extends HttpServlet {
         entity.setHouseNumber(Integer.valueOf(request.getParameter("house_number")));
         entity.setDoor(Integer.valueOf(request.getParameter("float_number")));
         return entity;
+    }
+
+    private void decrementProductAmount(List<ShoppingUnit> shoppingList) throws DaoStoreException {
+        ProductDao productDao = new ProductDao();
+        for(ShoppingUnit unit : shoppingList){
+            productDao.decrementProductAmount(unit.getId());
+        }
     }
 
 }

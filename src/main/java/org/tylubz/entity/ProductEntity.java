@@ -18,13 +18,13 @@ public class ProductEntity {
     private String name;
 
     @Column(name = "price")
-    private Double price;
+    private Float price;
 
     @Column(name = "category")
     private String category;
 
     @Column(name = "weight")
-    private Double weight;
+    private Float weight;
 
     @Column(name = "volume")
     private String volume;
@@ -51,11 +51,11 @@ public class ProductEntity {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
@@ -67,11 +67,11 @@ public class ProductEntity {
         this.category = category;
     }
 
-    public Double getWeight() {
+    public Float getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(Float weight) {
         this.weight = weight;
     }
 

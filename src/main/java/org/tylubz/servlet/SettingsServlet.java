@@ -20,7 +20,7 @@ public class SettingsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDao userDao = new UserDao(UserEntity.class);
+        UserDao userDao = new UserDao();
         String username = req.getSession().getAttribute("username").toString();
         String password = req.getSession().getAttribute("password").toString();
         UserEntity userEntity = userDao.getEntityByUsernameAndPassword(username,password);

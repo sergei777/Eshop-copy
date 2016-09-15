@@ -27,7 +27,7 @@
             <div class="headerclass">
                 <ul class="nav navbar-nav center-block">
                     <li><a href="${pageContext.request.contextPath}/index.jsp">На главную</a></li>
-                    <li><a href="${pageContext.request.contextPath}/products">Каталог товаров</a></li>
+                    <li><a href="${pageContext.request.contextPath}/product-list?operation=getProductList">Каталог товаров</a></li>
                     <li><a href="${pageContext.request.contextPath}/contacts.jsp">Контакты</a></li>
                 </ul>
 

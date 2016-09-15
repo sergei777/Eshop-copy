@@ -32,7 +32,7 @@
                     <tr>
                         <td>${item.id}</td>
                         <td>${item.user.username}</td>
-                        <td>${item.paymentType}</td>
+                        <td>${item.paymentStatus}</td>
                         <td>${item.paymentType}</td>
                         <form action="/order-list" method="get">
                             <td>
@@ -70,15 +70,9 @@
                                 <input type="hidden" name="id" value="${item.id}" >
                                 <input type="submit" class="btn btn-default" value="Сохранить изменения">
                             </td>
-
                             </form>
-
-
                     </tr>
                 </c:forEach>
-                </tbody>
-
-
             </table>
 
         </div>

@@ -4,3 +4,11 @@
     height: 200px;
     overflow:hidden;
 }
+
+/*.block-inline {*/
+    /*display: inline-block;*/
+/*}*/
+
+.brd {
+    border-top: 1px solid black;
+}

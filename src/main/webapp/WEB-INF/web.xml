@@ -29,14 +29,6 @@
     <url-pattern>/checkuser</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>ShowProducts</servlet-name>
-    <servlet-class>org.tylubz.servlet.ShowProductsServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ShowProducts</servlet-name>
-    <url-pattern>/products</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>SignUp</servlet-name>
     <servlet-class>org.tylubz.servlet.SignUpServlet</servlet-class>
   </servlet>
@@ -86,10 +78,18 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>ProductList</servlet-name>
-    <servlet-class>org.tylubz.servlet.ProductListServlet</servlet-class>
+    <servlet-class>org.tylubz.servlet.ProductOperationsServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ProductList</servlet-name>
     <url-pattern>/product-list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Statistics</servlet-name>
+    <servlet-class>org.tylubz.servlet.StatisticServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Statistics</servlet-name>
+    <url-pattern>/statistics</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,7 +1,10 @@
-package org.tylubz.entity;
+package org.tylubz.cart;
 
 /**
- * Created by Sergei on 10.09.2016.
+ * Item of shopping cart, which contains
+ * id of product,name amount and price
+ *
+ * @author Sergei
  */
 public class ShoppingUnit {
 
@@ -41,4 +44,5 @@ public class ShoppingUnit {
     public void setPrice(float price) {
         this.price = price;
     }
+
 }

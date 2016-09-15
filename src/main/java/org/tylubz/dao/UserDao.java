@@ -11,10 +11,6 @@ import java.util.List;
  */
 public class UserDao extends GenericDaoJpaImpl{
 
-    public UserDao(Class entity) {
-        super(entity);
-    }
-
     public UserDao() {
         super(UserEntity.class);
     }

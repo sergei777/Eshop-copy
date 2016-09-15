@@ -26,7 +26,7 @@ public class OrderListServlet extends HttpServlet {
         }
         else {
             if (req.getParameter("orderStatusUpdate") != null) {
-                updateEntity(req.getParameter("orderStatusUpdate"), Integer.valueOf(req.getParameter("id")), resp);
+                updateOrderStatus(req.getParameter("orderStatusUpdate"), Integer.valueOf(req.getParameter("id")), resp);
                 resp.sendRedirect("/admin/orderlist.jsp");
             } else {
                 OrderDao orderDao = new OrderDao();
@@ -36,7 +36,7 @@ public class OrderListServlet extends HttpServlet {
         }
     }
 
-    public void updateEntity(String status,int id,HttpServletResponse resp){
+    public void updateOrderStatus(String status, int id, HttpServletResponse resp){
         OrderDao orderDao = new OrderDao();
         OrderEntity orderEntity = (OrderEntity) orderDao.read(id);
         orderEntity.setOrderStatus(status);

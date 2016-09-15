@@ -15,12 +15,13 @@
     </jsp:attribute>
     <jsp:body>
         <div class="container" style="text-align: center">
-        <p>Наш магазин находится по адресу:
+        <h4>Наш магазин находится по адресу:
             м. Купчино, улица Ярослава-Гашека 23
-        </p>
-        <img class="img-rounded" src="http://www.be-in.ru/media/beingallery/gallery/userdata/user_12133/img19492.jpg">
-        <p>Вход со двора
-        </p>
+        </h4>
+        <img class="img-rounded" src="http://www.be-in.ru/media/beingallery/gallery/userdata/user_12133/img19492.jpg"
+        width="50%" height="50%">
+        <h4>Вход со двора
+        </h4>
         <div class="container">
     </jsp:body>
 </t:genericpage>

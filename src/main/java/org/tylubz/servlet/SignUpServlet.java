@@ -22,7 +22,15 @@ import java.util.Locale;
 public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDao userDao = new UserDao(UserEntity.class);
+        try {
+            addNewUser(req,resp);
+        } catch (DaoStoreException e) {
+            resp.setStatus(500);
+        }
+    }
+
+    public void addNewUser(HttpServletRequest req, HttpServletResponse resp) throws IOException,DaoStoreException{
+        UserDao userDao = new UserDao();
         req.setCharacterEncoding("UTF-8");
         UserEntity user = new UserEntity();
         user.setFirstName(req.getParameter("first_name"));
@@ -38,31 +46,18 @@ public class SignUpServlet extends HttpServlet {
         }
         user.setUserType("user");
         if(req.getParameter("city")!=null){
-            AddressEntity addressEntity = new AddressEntity();
-            addressEntity.setCountry(req.getParameter("country"));
-            addressEntity.setCity(req.getParameter("city"));
-            addressEntity.setPostcode(Integer.valueOf(req.getParameter("postcode")));
-            addressEntity.setHouseNumber(Integer.valueOf(req.getParameter("house_number")));
-            addressEntity.setDoor(Integer.valueOf(req.getParameter("floar_number")));
-            user.setAddressEntity(addressEntity);
+            user.setAddressEntity(createAddressEntity(req));
         }
-        try {
-            userDao.create(user);
-        } catch (DaoStoreException e) {
-            resp.setStatus(500);
-        }
+        userDao.create(user);
     }
 
-    public static void main(String[] args) {
-        String string = "12.12.1994";
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy", Locale.ENGLISH);
-        DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
-        //LocalDate date = LocalDate.parse(string, formatter);
-        try {
-            Date newDate = format.parse(string);
-            System.out.println(newDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+    public AddressEntity createAddressEntity(HttpServletRequest req){
+        AddressEntity addressEntity = new AddressEntity();
+        addressEntity.setCountry(req.getParameter("country"));
+        addressEntity.setCity(req.getParameter("city"));
+        addressEntity.setPostcode(Integer.valueOf(req.getParameter("postcode")));
+        addressEntity.setHouseNumber(Integer.valueOf(req.getParameter("house_number")));
+        addressEntity.setDoor(Integer.valueOf(req.getParameter("float_number")));
+        return addressEntity;
     }
 }

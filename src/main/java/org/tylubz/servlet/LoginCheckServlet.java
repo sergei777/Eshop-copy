@@ -26,7 +26,7 @@ public class LoginCheckServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDao userDao = new UserDao(UserDao.class);
+        UserDao userDao = new UserDao();
             UserEntity user = userDao.getEntityByUsernameAndPassword(req.getParameter("login"), req.getParameter("password"));
         if(user!=null) {
             req.getSession().setAttribute("first_name", user.getFirstName());
