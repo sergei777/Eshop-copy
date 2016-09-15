@@ -13,8 +13,19 @@ import java.util.List;
 
 /**
  * Making operation with products in db
+ *
+ * @author Sergei
  */
 public class ProductOperationsServlet extends HttpServlet {
+    /**
+     * Checks the request parameters
+     * and call method
+     *
+     * @param req  for extracting data
+     * @param resp for setting url
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if ("getItemById".equals(req.getParameter("operation"))) {
@@ -35,9 +46,6 @@ public class ProductOperationsServlet extends HttpServlet {
             List<ProductEntity> list = getProductsByPriceRange(minPrice, maxPrice);
             req.setAttribute("productList", list);
             req.getRequestDispatcher("/products.jsp").forward(req, resp);
-            for (ProductEntity pe : list) {
-                System.out.println(pe.getName());
-            }
         }
     }
 

@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * Entity for order_table
+ *
+ * @author Sergei
  */
 @Entity
 @Table(name = "order_table")
@@ -42,7 +44,7 @@ public class OrderEntity {
     @JoinTable(name = "order_has_product",
             joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-            private List<ProductEntity> products;
+    private List<ProductEntity> products;
 
     public int getId() {
         return id;

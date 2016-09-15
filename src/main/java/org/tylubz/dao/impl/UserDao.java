@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Dao for UserEntity
+ *
+ * @author Sergei
  */
 public class UserDao extends GenericDaoJpaImpl {
 
@@ -18,8 +20,8 @@ public class UserDao extends GenericDaoJpaImpl {
      * returns entity by username
      * and password
      *
-     * @param username
-     * @param password
+     * @param username name of user
+     * @param password password of user
      * @return entity
      */
     public UserEntity getEntityByUsernameAndPassword(String username, String password) {
@@ -33,7 +35,7 @@ public class UserDao extends GenericDaoJpaImpl {
     /**
      * return entity by username
      *
-     * @param username
+     * @param username name of user
      * @return entity
      */
     public UserEntity getEntityByUsername(String username) {

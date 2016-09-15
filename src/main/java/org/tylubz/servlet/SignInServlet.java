@@ -12,12 +12,15 @@ import java.io.PrintWriter;
 
 /**
  * Operation for entering to system
+ *
+ * @author Sergei
  */
 public class SignInServlet extends HttpServlet {
     /**
      * Outs of session
-     * @param req
-     * @param resp
+     *
+     * @param req  for extracting data
+     * @param resp for setting status
      * @throws ServletException
      * @throws IOException
      */
@@ -33,8 +36,9 @@ public class SignInServlet extends HttpServlet {
 
     /**
      * Entering to system
-     * @param req
-     * @param resp
+     *
+     * @param req  for extracting data
+     * @param resp for setting status
      * @throws ServletException
      * @throws IOException
      */

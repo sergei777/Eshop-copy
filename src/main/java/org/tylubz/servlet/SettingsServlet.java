@@ -11,6 +11,8 @@ import java.io.IOException;
 
 /**
  * For redirecting to user settings
+ *
+ * @author Sergei
  */
 public class SettingsServlet extends HttpServlet {
     @Override
@@ -18,13 +20,22 @@ public class SettingsServlet extends HttpServlet {
         doPost(req, resp);
     }
 
+    /**
+     * Add data to session
+     * and set to settings
+     *
+     * @param req  for extracting data
+     * @param resp for setting status
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDao userDao = new UserDao();
         String username = req.getSession().getAttribute("username").toString();
         String password = req.getSession().getAttribute("password").toString();
-        UserEntity userEntity = userDao.getEntityByUsernameAndPassword(username,password);
-        req.setAttribute("user",userEntity);
-        req.getRequestDispatcher("/settings.jsp").forward(req,resp);
+        UserEntity userEntity = userDao.getEntityByUsernameAndPassword(username, password);
+        req.setAttribute("user", userEntity);
+        req.getRequestDispatcher("/settings.jsp").forward(req, resp);
     }
 }

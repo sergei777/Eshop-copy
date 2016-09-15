@@ -2,6 +2,8 @@ package org.tylubz.dao.exceptions;
 
 /**
  * Exception class for Dao layer.
+ *
+ * @author Sergei
  */
 public class DaoStoreException extends Exception {
     public DaoStoreException() {

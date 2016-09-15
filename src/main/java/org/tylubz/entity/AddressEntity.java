@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 /**
  * Entity for address_table
+ *
+ * @author Sergei
  */
 @Entity
 @Table(name = "address_table")

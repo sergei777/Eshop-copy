@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Entity for user_table
+ * Entity for user_table table
+ *
+ * @author Sergei
  */
 @Entity
 @Table(name = "user_table")
@@ -43,8 +45,8 @@ public class UserEntity {
     private List<OrderEntity> orders;
 
     @OneToOne(cascade = CascadeType.ALL,
-            fetch=FetchType.LAZY)
-    @JoinColumn(name="user_address")
+            fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_address")
     private AddressEntity addressEntity;
 
     public int getId() {

@@ -14,8 +14,19 @@ import java.io.IOException;
 
 /**
  * Making operations with orders in db
+ *
+ * @author Sergei
  */
 public class OrderListServlet extends HttpServlet {
+    /**
+     * Checks the request parameters
+     * and call method
+     *
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getParameter("getorderlistbyid") != null) {

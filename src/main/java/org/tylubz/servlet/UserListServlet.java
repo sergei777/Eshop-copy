@@ -18,24 +18,27 @@ import java.util.Locale;
 /**
  * Class for making operations with
  * users in db
+ *
+ * @author Sergei
  */
 public class UserListServlet extends HttpServlet {
     /**
      * Returns all users or redirect to update page
-     * @param req
-     * @param resp
+     *
+     * @param req  for extracting data
+     * @param resp for setting status
      * @throws ServletException
      * @throws IOException
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDao userDao = new UserDao();
-        if("change".equals(req.getParameter("operation"))){
+        if ("change".equals(req.getParameter("operation"))) {
             int id = Integer.valueOf(req.getParameter("id"));
-            req.setAttribute("user",(UserEntity)userDao.read(id));
-            req.getRequestDispatcher("/admin/updateuser.jsp").forward(req,resp);
+            req.setAttribute("user", userDao.read(id));
+            req.getRequestDispatcher("/admin/updateuser.jsp").forward(req, resp);
         }
-        if("getUserList".equals(req.getParameter("operation"))){
+        if ("getUserList".equals(req.getParameter("operation"))) {
             List<UserEntity> list = userDao.getAllUserEntity();
             req.setAttribute("userList", list);
             resp.sendRedirect("/admin/productlist.jsp");
@@ -44,15 +47,16 @@ public class UserListServlet extends HttpServlet {
 
     /**
      * update user information
-     * @param req
-     * @param resp
+     *
+     * @param req  for extracting data
+     * @param resp for setting status
      * @throws ServletException
      * @throws IOException
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        if("updateUserMainInformation".equals(req.getParameter("operation"))){
+        if ("updateUserMainInformation".equals(req.getParameter("operation"))) {
             UserDao userDao = new UserDao();
             UserEntity entity = (UserEntity) userDao.read(Integer.valueOf(req.getParameter("id")));
             DateFormat format = new SimpleDateFormat("yyyy.MM.dd", Locale.ENGLISH);
@@ -69,10 +73,9 @@ public class UserListServlet extends HttpServlet {
             } catch (ParseException e) {
                 resp.setStatus(500);
             }
-            if("admin".equals(req.getParameter("userType"))){
+            if ("admin".equals(req.getParameter("userType"))) {
                 resp.sendRedirect("/admin.jsp");
-            }
-            else {
+            } else {
                 resp.sendRedirect("/index.jsp");
             }
         }

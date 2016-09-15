@@ -7,6 +7,8 @@ import java.util.*;
 
 /**
  * Dao for OrderHasProduct entity
+ *
+ * @author Sergei
  */
 public class OrderHasProductDao extends GenericDaoJpaImpl {
     public OrderHasProductDao() {

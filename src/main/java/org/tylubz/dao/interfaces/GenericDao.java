@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @param <E>  Entity
  * @param <PK> Primary key
- *
+ * @author Sergei
  */
 public interface GenericDao<E, PK extends Serializable> {
     /**

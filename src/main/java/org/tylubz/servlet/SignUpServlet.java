@@ -16,19 +16,30 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 /**
- * Created by Sergei on 05.09.2016.
+ * Class for manipulating with user
+ * entities
+ *
+ * @author Sergei
  */
 public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            addNewUser(req,resp);
+            addNewUser(req, resp);
         } catch (DaoStoreException e) {
             resp.setStatus(500);
         }
     }
 
-    public void addNewUser(HttpServletRequest req, HttpServletResponse resp) throws IOException,DaoStoreException{
+    /**
+     * creates new user entity in db
+     *
+     * @param req  for extracting data
+     * @param resp for setting url
+     * @throws IOException
+     * @throws DaoStoreException
+     */
+    public void addNewUser(HttpServletRequest req, HttpServletResponse resp) throws IOException, DaoStoreException {
         UserDao userDao = new UserDao();
         req.setCharacterEncoding("UTF-8");
         UserEntity user = new UserEntity();
@@ -41,17 +52,24 @@ public class SignUpServlet extends HttpServlet {
         try {
             user.setBirthDate(format.parse(req.getParameter("birth_date").toString()));
         } catch (ParseException e) {
-            e.printStackTrace();
+            resp.setStatus(500);
         }
         user.setUserType("user");
-        if(!"".equals(req.getParameter("city"))){
+        if (!"".equals(req.getParameter("city"))) {
             user.setAddressEntity(createAddressEntity(req));
         }
         userDao.create(user);
         resp.sendRedirect("/index.jsp");
     }
 
-    public AddressEntity createAddressEntity(HttpServletRequest req){
+    /**
+     * creates new AddressEntity
+     * and returns it
+     *
+     * @param req for extractiong data
+     * @return entity
+     */
+    public AddressEntity createAddressEntity(HttpServletRequest req) {
         AddressEntity addressEntity = new AddressEntity();
         addressEntity.setCountry(req.getParameter("country"));
         addressEntity.setCity(req.getParameter("city"));

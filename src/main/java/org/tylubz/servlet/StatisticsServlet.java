@@ -14,6 +14,8 @@ import java.util.Map;
 
 /**
  * Class for sending statistic
+ *
+ * @author Sergei
  */
 public class StatisticsServlet extends HttpServlet {
     @Override

@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Dao for OrderEntity
+ *
+ * @author Sergei
  */
 public class OrderDao extends GenericDaoJpaImpl {
 

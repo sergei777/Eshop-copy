@@ -9,8 +9,10 @@ import java.io.Serializable;
 
 /**
  * Implementation of GenericDao
+ *
  * @param <E>  Entity
  * @param <PK> Primary key
+ * @author Sergei
  */
 public class GenericDaoJpaImpl<E, PK extends Serializable>
         implements GenericDao<E, PK> {

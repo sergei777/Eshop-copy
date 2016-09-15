@@ -5,10 +5,12 @@ import java.io.Serializable;
 
 /**
  * Entity for order_has_product table
+ *
+ * @author Sergei
  */
 @Entity
 @Table(name = "order_has_product")
-public class OrderHasProductEntity implements Serializable{
+public class OrderHasProductEntity implements Serializable {
 
     @Id
     @Column(name = "order_id")

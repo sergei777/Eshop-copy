@@ -20,6 +20,8 @@ import java.util.List;
 
 /**
  * creates new order in db
+ *
+ * @
  */
 public class MakeOrderServlet extends HttpServlet {
     @Override
@@ -27,6 +29,14 @@ public class MakeOrderServlet extends HttpServlet {
 
     }
 
+    /**
+     * Read data and creates order
+     *
+     * @param req  for extracting data
+     * @param resp for setting status
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
