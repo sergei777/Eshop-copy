@@ -23,7 +23,7 @@
         <div class="modal-body">
 
 
-            <form id="update" action="/sign-up" method="POST">
+            <form id="update" action="/user-list" method="POST">
                 <!---form--->
                 <div class="form-group">
                     <!---input width--->
@@ -101,6 +101,9 @@
                 </div>
 
                 <div class="form-group">
+                    <input type="hidden" name="operation" value="updateUserMainInformation">
+                    <input type="hidden" name="id" value="${user.id}">
+                    <input type="hidden" name="userType" value="admin">
                     <input type="submit" form="update" name="submit" id="submit"
                            value="Сохранить изменения" class="btn btn-success center-block">
                 </div>

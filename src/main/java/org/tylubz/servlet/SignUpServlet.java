@@ -1,6 +1,6 @@
 package org.tylubz.servlet;
 
-import org.tylubz.dao.UserDao;
+import org.tylubz.dao.impl.UserDao;
 import org.tylubz.dao.exceptions.DaoStoreException;
 import org.tylubz.entity.AddressEntity;
 import org.tylubz.entity.UserEntity;
@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 /**
@@ -45,10 +44,11 @@ public class SignUpServlet extends HttpServlet {
             e.printStackTrace();
         }
         user.setUserType("user");
-        if(req.getParameter("city")!=null){
+        if(!"".equals(req.getParameter("city"))){
             user.setAddressEntity(createAddressEntity(req));
         }
         userDao.create(user);
+        resp.sendRedirect("/index.jsp");
     }
 
     public AddressEntity createAddressEntity(HttpServletRequest req){

@@ -29,7 +29,7 @@
                                     <label>Имя</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="first_name"
-                                               placeholder="Введите имя пользователя" required>
+                                               placeholder="Введите имя пользователя" required >
                                         <span class="input-group-addon"><span
                                                 class="glyphicon glyphicon-asterisk"></span></span>
                                     </div>
@@ -37,7 +37,7 @@
                                     <label>Логин</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="username"
-                                               placeholder="Введите логин" required>
+                                               placeholder="Введите логин" required >
                                         <span class="input-group-addon"><span
                                                 class="glyphicon glyphicon-asterisk"></span></span>
                                     </div>
@@ -50,7 +50,7 @@
                                     <label>Фамилия</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="last_name"
-                                               placeholder="Введите фамилию" required>
+                                               placeholder="Введите фамилию" required >
                                         <span class="input-group-addon"><span
                                                 class="glyphicon glyphicon-asterisk"></span></span>
                                     </div>
@@ -58,7 +58,7 @@
                                     <label>Пароль</label>
                                     <div class="input-group">
                                         <input type="password" class="form-control" name="password"
-                                               placeholder="Введите пароль" required>
+                                               placeholder="Введите пароль" required >
                                         <span class="input-group-addon"><span
                                                 class="glyphicon glyphicon-asterisk"></span></span>
                                     </div>
@@ -70,8 +70,8 @@
                                 <div class="col-xs-12">
                                     <label>Дата рождения</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="birth_date"
-                                               placeholder="Введите дату рождения" required>
+                                        <input type="date" class="form-control" name="birth_date"
+                                               placeholder="Введите дату рождения в формате dd-mm-yyyy" required pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$">
                                         <span class="input-group-addon"><span
                                                 class="glyphicon glyphicon-asterisk"></span></span>
                                     </div>
@@ -84,7 +84,7 @@
                                     <label>E-mail</label>
                                     <div class="input-group">
                                         <input type="email" class="form-control" name="email"
-                                               placeholder="Введите e-mail" required>
+                                               placeholder="Введите e-mail" required pattern="\S+@\S+">
                                         <span class="input-group-addon"><span
                                                 class="glyphicon glyphicon-asterisk"></span></span>
                                     </div>
@@ -109,7 +109,7 @@
                                 <label>Почтовый код</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="postcode"
-                                           placeholder="Введите почтовый код">
+                                           placeholder="Введите почтовый код" pattern="\d{6}">
                                     <span class="input-group-addon"><span
                                             class="glyphicon glyphicon-globe"></span></span>
                                 </div>
@@ -139,7 +139,7 @@
                                     <label>Дом</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="house_number"
-                                               placeholder="Введите номер дома">
+                                               placeholder="Введите номер дома" pattern="^[1-9]\d*$">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
                                     <hr>
@@ -150,7 +150,7 @@
                                     <label>Квартира</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="float_number"
-                                               placeholder="Введите номер квартиры">
+                                               placeholder="Введите номер квартиры" pattern="^[1-9]\d*$">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
                                     <hr>

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by Sergei on 20.08.2016.
+ * Entity for order_table
  */
 @Entity
 @Table(name = "order_table")

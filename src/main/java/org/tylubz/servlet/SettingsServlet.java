@@ -1,6 +1,6 @@
 package org.tylubz.servlet;
 
-import org.tylubz.dao.UserDao;
+import org.tylubz.dao.impl.UserDao;
 import org.tylubz.entity.UserEntity;
 
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Sergei on 07.09.2016.
+ * For redirecting to user settings
  */
 public class SettingsServlet extends HttpServlet {
     @Override

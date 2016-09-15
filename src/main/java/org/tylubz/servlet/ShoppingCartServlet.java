@@ -8,7 +8,8 @@ import javax.servlet.http.*;
 import java.io.IOException;
 
 /**
- * Created by Sergei on 10.09.2016.
+ * Class for making operations with
+ * shopping cart
  */
 public class ShoppingCartServlet extends HttpServlet {
     private ShoppingCart shoppingCart;
@@ -25,6 +26,10 @@ public class ShoppingCartServlet extends HttpServlet {
         }
     }
 
+    /**
+     * add new item to shopping cart
+     * @param request
+     */
     public void addNewItem(HttpServletRequest request){
         HttpSession session = request.getSession();
         shoppingCart = (ShoppingCart) session.getAttribute("shoppingCart");;
@@ -36,6 +41,11 @@ public class ShoppingCartServlet extends HttpServlet {
         session.setAttribute("shoppingCart",shoppingCart);
     }
 
+    /**
+     * Creates new shopping unit
+     * @param request for extracting data
+     * @return shopping unit
+     */
     private ShoppingUnit createShoppingUnit(HttpServletRequest request){
         ShoppingUnit unit = new ShoppingUnit();
         unit.setName(request.getParameter("name"));
@@ -45,6 +55,10 @@ public class ShoppingCartServlet extends HttpServlet {
         return unit;
     }
 
+    /**
+     * remove product from shopping cart
+     * @param id for removing
+     */
     private void removeShoppingUnitById(int id){
         shoppingCart.removeUnitById(id);
     }

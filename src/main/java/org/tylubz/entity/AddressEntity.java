@@ -3,7 +3,7 @@ package org.tylubz.entity;
 import javax.persistence.*;
 
 /**
- * Created by Sergei on 20.08.2016.
+ * Entity for address_table
  */
 @Entity
 @Table(name = "address_table")

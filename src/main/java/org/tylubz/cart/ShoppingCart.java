@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * Stores the product items in a cart
+ * Stores product items in a cart
  *
  * @author Sergei
  */

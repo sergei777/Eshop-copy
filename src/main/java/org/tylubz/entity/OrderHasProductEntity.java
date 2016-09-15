@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by Sergei on 20.08.2016.
+ * Entity for order_has_product table
  */
 @Entity
 @Table(name = "order_has_product")

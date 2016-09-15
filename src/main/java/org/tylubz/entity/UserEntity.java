@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Sergei on 20.08.2016.
+ * Entity for user_table
  */
 @Entity
 @Table(name = "user_table")

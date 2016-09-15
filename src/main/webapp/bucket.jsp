@@ -8,12 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<style>
-    .btn-sm {
-        margin: 0px;
-        padding: 0px;
-    }
-</style>
 <t:genericpage>
     <jsp:attribute name="header">
         <h1>Корзина</h1>

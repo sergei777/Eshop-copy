@@ -54,16 +54,16 @@
                     </c:forEach>
                 </div>
                 <div class="col-md-2">
-                    <div class="form-group">
-                        <label for="sel1">Выбрать категорию:</label>
-                        <select class="form-control" id="sel1">
-                            <option selected></option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
-                    </div>
+                    <%--<div class="form-group">--%>
+                        <%--<label for="sel1">Выбрать категорию:</label>--%>
+                        <%--<select class="form-control" id="sel1">--%>
+                            <%--<option selected></option>--%>
+                            <%--<option>1</option>--%>
+                            <%--<option>2</option>--%>
+                            <%--<option>3</option>--%>
+                            <%--<option>4</option>--%>
+                        <%--</select>--%>
+                    <%--</div>--%>
                     <label for="sel1">Цена:</label>
                     <div class="brd">
                         <form id="updateProductByPriceRange" action="${pageContext.request.contextPath}/product-list"
@@ -93,5 +93,4 @@
     </jsp:body>
 </t:genericpage>
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </html>

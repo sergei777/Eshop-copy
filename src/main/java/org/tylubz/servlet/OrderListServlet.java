@@ -1,7 +1,7 @@
 package org.tylubz.servlet;
 
-import org.tylubz.dao.OrderDao;
-import org.tylubz.dao.UserDao;
+import org.tylubz.dao.impl.OrderDao;
+import org.tylubz.dao.impl.UserDao;
 import org.tylubz.dao.exceptions.DaoStoreException;
 import org.tylubz.entity.OrderEntity;
 import org.tylubz.entity.UserEntity;
@@ -13,18 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Sergei on 12.09.2016.
+ * Making operations with orders in db
  */
 public class OrderListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(req.getParameter("getorderlistbyid")!=null){
+        if (req.getParameter("getorderlistbyid") != null) {
             UserDao userDao = new UserDao();
             UserEntity userEntity = (UserEntity) userDao.read(Integer.valueOf(req.getParameter("getorderlistbyid")));
-            req.setAttribute("orderList",userEntity.getOrders());
+            req.setAttribute("orderList", userEntity.getOrders());
             resp.sendRedirect("/user/orderlist.jsp");
-        }
-        else {
+        } else {
             if (req.getParameter("orderStatusUpdate") != null) {
                 updateOrderStatus(req.getParameter("orderStatusUpdate"), Integer.valueOf(req.getParameter("id")), resp);
                 resp.sendRedirect("/admin/orderlist.jsp");
@@ -36,7 +35,14 @@ public class OrderListServlet extends HttpServlet {
         }
     }
 
-    public void updateOrderStatus(String status, int id, HttpServletResponse resp){
+    /**
+     * Updates order status in db
+     *
+     * @param status status
+     * @param id     of entity
+     * @param resp   for setting status
+     */
+    public void updateOrderStatus(String status, int id, HttpServletResponse resp) {
         OrderDao orderDao = new OrderDao();
         OrderEntity orderEntity = (OrderEntity) orderDao.read(id);
         orderEntity.setOrderStatus(status);

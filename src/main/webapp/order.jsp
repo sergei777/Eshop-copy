@@ -27,7 +27,8 @@
                             <div class="col-xs-4">
                                 <label>Страна</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="country" placeholder="Страна">
+                                    <input type="text" class="form-control" name="country" placeholder="Страна"
+                                           required >
                                     <span class="input-group-addon"><span
                                             class="glyphicon glyphicon-globe"></span></span>
                                 </div>
@@ -40,7 +41,7 @@
                                 <label>Почтовый индекс</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="postcode" placeholder="Индекс"
-                                           required>
+                                           required pattern="\d{6}">
                                     <span class="input-group-addon"><span
                                             class="glyphicon glyphicon-globe"></span></span>
                                 </div>
@@ -62,7 +63,7 @@
                                     <label>Улица</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="street" placeholder="Улица"
-                                               required>
+                                               required pattern="^[1-9]\d*$">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
                                 </div>
@@ -73,7 +74,7 @@
                                     <label>Дом</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="house_number" placeholder="Дом"
-                                               required>
+                                               required pattern="^[1-9]\d*$">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
                                 </div>
@@ -84,7 +85,7 @@
                                     <label>Квартира</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="float_number"
-                                               placeholder="Квартира" required>
+                                               placeholder="Квартира" required pattern="^[1-9]\d*$">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
                                     </div>
                                     <br>
@@ -92,35 +93,41 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-xs-6">
+                                <div class="col-md-4">
                                     <label>Способ оплаты</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="payment_type"
-                                               placeholder="Способ оплаты" required>
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                        <select class="form-control" name="payment_type" required id="paymentTypeId">
+                                            <option>Картой</option>
+                                            <option selected>Наличными</option>
+                                        </select>
                                     </div>
-                                    <hr>
+                                    <br>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="col-xs-6">
+                                <div class="col-md-6">
                                     <label>Способ доставки</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="delivery_type"
-                                               placeholder="Способ доставки" required>
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                        <select class="form-control" name="delivery_type" required class="form-control"
+                                                id="sel1">
+                                            <option>Почтой</option>
+                                            <option selected>Курьером</option>
+                                            <option>Самовывоз</option>
+                                        </select>
                                     </div>
-                                    <hr>
                                 </div>
+                                <br>
                             </div>
-
+                            <div class="row col-md-12"></div>
                             <div class="form-group">
                                 <input type="hidden" name="payment_status" value="Не оплачен">
                                 <input type="hidden" name="order_status" value="Не оплачен">
+
                                 <input type="submit" form="order" name="submit" id="submit" value="Оформить заказ!"
                                        class="btn btn-success center-block">
                             </div>
+
                         </form>
                     </div><!---modal-body--->
                 </div>

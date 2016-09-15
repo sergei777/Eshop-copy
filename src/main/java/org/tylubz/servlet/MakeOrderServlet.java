@@ -2,11 +2,12 @@ package org.tylubz.servlet;
 
 import org.tylubz.cart.ShoppingCart;
 import org.tylubz.cart.ShoppingUnit;
-import org.tylubz.dao.ProductDao;
-import org.tylubz.dao.UserDao;
+import org.tylubz.dao.interfaces.GenericDao;
+import org.tylubz.dao.impl.GenericDaoJpaImpl;
+import org.tylubz.dao.impl.ProductDao;
+import org.tylubz.dao.impl.UserDao;
 import org.tylubz.dao.exceptions.DaoStoreException;
 import org.tylubz.entity.*;
-import org.tylubz.service.GenericService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Sergei on 11.09.2016.
+ * creates new order in db
  */
 public class MakeOrderServlet extends HttpServlet {
     @Override
@@ -32,14 +33,22 @@ public class MakeOrderServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("shoppingCart");
         String username = session.getAttribute("username").toString();
-        createOrder(shoppingCart,username,req,resp);
+        createOrder(shoppingCart, username, req, resp);
         shoppingCart = new ShoppingCart();
-        req.getSession().setAttribute("shoppingCart",shoppingCart);
-        req.getRequestDispatcher("/index.jsp").forward(req,resp);
+        req.getSession().setAttribute("shoppingCart", shoppingCart);
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 
-    public void createOrder(ShoppingCart shoppingCart,String username,HttpServletRequest req,HttpServletResponse resp){
-        GenericService<OrderEntity,Integer> orderService = new GenericService<OrderEntity, Integer>(OrderEntity.class);
+    /**
+     * create new Order in db
+     *
+     * @param shoppingCart list of products
+     * @param username     name of user
+     * @param req          for extracting data
+     * @param resp         for setting status
+     */
+    public void createOrder(ShoppingCart shoppingCart, String username, HttpServletRequest req, HttpServletResponse resp) {
+        GenericDao<OrderEntity, Integer> orderService = new GenericDaoJpaImpl<OrderEntity, Integer>(OrderEntity.class);
         UserDao userDao = new UserDao();
         List<ShoppingUnit> shoppingList = shoppingCart.getShoppingList();
         OrderEntity orderEntity = new OrderEntity();
@@ -50,8 +59,8 @@ public class MakeOrderServlet extends HttpServlet {
         UserEntity entity = userDao.getEntityByUsername(username);
         orderEntity.setUser(entity);
         orderEntity.setAddressEntity(getAddressEntity(req));
-        orderEntity.setProducts(getProductList(shoppingList));
         try {
+            orderEntity.setProducts(getProductList(shoppingList));
             orderService.create(orderEntity);
             decrementProductAmount(shoppingList);
         } catch (DaoStoreException e) {
@@ -60,16 +69,27 @@ public class MakeOrderServlet extends HttpServlet {
 
     }
 
-    private List<ProductEntity> getProductList(List<ShoppingUnit> shoppingList){
-        GenericService<ProductEntity,Integer> productService = new GenericService<ProductEntity, Integer>(ProductEntity.class);
+    /**
+     * @param shoppingList
+     * @return
+     * @throws DaoStoreException
+     */
+    private List<ProductEntity> getProductList(List<ShoppingUnit> shoppingList) throws DaoStoreException {
+        GenericDao<ProductEntity, Integer> productDao = new GenericDaoJpaImpl<>(ProductEntity.class);
         List<ProductEntity> productList = new ArrayList<ProductEntity>();
-        for(ShoppingUnit unit : shoppingList){
-            productList.add(productService.read(unit.getId()));
+        for (ShoppingUnit unit : shoppingList) {
+            productList.add(productDao.read(unit.getId()));
         }
         return productList;
     }
 
-    private AddressEntity getAddressEntity(HttpServletRequest request){
+    /**
+     * return new AddressEntity
+     *
+     * @param request
+     * @return
+     */
+    private AddressEntity getAddressEntity(HttpServletRequest request) {
         AddressEntity entity = new AddressEntity();
         entity.setCountry(request.getParameter("country").toString());
         entity.setCity(request.getParameter("city").toString());
@@ -80,9 +100,16 @@ public class MakeOrderServlet extends HttpServlet {
         return entity;
     }
 
+    /**
+     * decrement product amount
+     * when order creates
+     *
+     * @param shoppingList list of products
+     * @throws DaoStoreException
+     */
     private void decrementProductAmount(List<ShoppingUnit> shoppingList) throws DaoStoreException {
         ProductDao productDao = new ProductDao();
-        for(ShoppingUnit unit : shoppingList){
+        for (ShoppingUnit unit : shoppingList) {
             productDao.decrementProductAmount(unit.getId());
         }
     }
