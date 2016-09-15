@@ -19,7 +19,7 @@
             м. Купчино, улица Ярослава-Гашека 23
         </h4>
         <img class="img-rounded" src="http://www.be-in.ru/media/beingallery/gallery/userdata/user_12133/img19492.jpg"
-        width="50%" height="50%">
+             width="50%" height="50%">
         <h4>Вход со двора
         </h4>
         <div class="container">

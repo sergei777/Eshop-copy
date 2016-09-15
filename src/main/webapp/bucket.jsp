@@ -55,9 +55,9 @@
                        disabled title="Нет товаров в корзине"
                 </c:if>
                 <c:if test="${!empty sessionScope.shoppingCart}">
-                    <c:if test="${sessionScope.shoppingCart.totalAmount==0}">
+                <c:if test="${sessionScope.shoppingCart.totalAmount==0}">
                        disabled title="Нет товаров в корзине"
-                    </c:if>
+                </c:if>
                 </c:if>
                 >
             </form>

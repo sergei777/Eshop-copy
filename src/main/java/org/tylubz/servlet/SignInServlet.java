@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 
 /**
  * Operation for entering to system
@@ -16,6 +17,8 @@ import java.io.PrintWriter;
  * @author Sergei
  */
 public class SignInServlet extends HttpServlet {
+
+    final static Logger logger = Logger.getLogger(String.valueOf(SignInServlet.class));
     /**
      * Outs of session
      *
@@ -29,6 +32,7 @@ public class SignInServlet extends HttpServlet {
         String operation = req.getParameter("sign-out");
         if (operation.equals("out")) {
             req.getSession().invalidate();
+            logger.info("The user are signed-out");
             resp.sendRedirect("/index.jsp");
             return;
         }
@@ -45,6 +49,7 @@ public class SignInServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDao userDao = new UserDao();
+        logger.info("The user are signed-in");
         UserEntity user = userDao.getEntityByUsernameAndPassword(req.getParameter("login"), req.getParameter("password"));
         if (user != null) {
             req.getSession().setAttribute("first_name", user.getFirstName());

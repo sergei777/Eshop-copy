@@ -17,18 +17,18 @@
     <jsp:body>
         <div class="container">
             <table class="table">
-        <h3>Самые покупаемые товары:</h3>
-        <tr>
-            <th>Наименование</th>
-            <th>Количество</th>
-        </tr>
-            <c:forEach items="${map}" var="entry">
+                <h3>Самые покупаемые товары:</h3>
                 <tr>
-                    <td>${entry.key}</td>
-                    <td>${entry.value}</td>
+                    <th>Наименование</th>
+                    <th>Количество</th>
                 </tr>
-            </c:forEach>
-                </table>
+                <c:forEach items="${map}" var="entry">
+                    <tr>
+                        <td>${entry.key}</td>
+                        <td>${entry.value}</td>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
     </jsp:body>
 </t:genericadminpage>
